@@ -76,7 +76,7 @@ paginate = 5
     olderPosts = "Older posts"
     missingContentMessage = "页面没找到..."
     missingBackButtonLabel = "返回主页"
-    minuteReadingTime = "min read"
+    minuteReadingTime = "分钟阅读"
     words = "words"
     contentDir = 'content/zh-cn'
 
