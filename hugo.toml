@@ -90,9 +90,10 @@ paginate = 5
         name = "关于"
         url = "/zh-cn/about"
       [[languages.zh-cn.menu.main]]
-        identifier = "showcase"
-        name = "展示"
-        url = "/zh-cn/showcase"
+        name = "归档"
+        weight = 20
+        identifier = "archives"
+        url = "/zh-cn/posts/"
 
   [languages.en]
     languageName = "English"
@@ -122,9 +123,10 @@ paginate = 5
         name = "About"
         url = "/en/about"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/en/showcase"
+        name = "archives"
+        weight = 20
+        identifier = "archives"
+        url = "/en/posts/"
 
 [markup]
   [markup.highlight]

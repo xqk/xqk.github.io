@@ -15,6 +15,45 @@
                 href="/en/about/"
                 />
   </url><url>
+    <loc>/en/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+  </url><url>
+    <loc>/en/posts/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/"
+                />
+  </url><url>
+    <loc>/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
+                />
+  </url><url>
     <loc>/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -25,18 +64,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/en/categories/"
-                />
-  </url><url>
-    <loc>/en/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/"
                 />
   </url><url>
     <loc>/en/tags/</loc>

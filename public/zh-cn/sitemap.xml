@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/zh-cn/</loc>
+    <lastmod>2023-08-30T17:08:26+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/"
+                />
+  </url><url>
     <loc>/zh-cn/about/</loc>
     <lastmod>2021-08-30T13:42:59+08:00</lastmod>
     <xhtml:link
@@ -13,6 +26,32 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="/zh-cn/about/"
+                />
+  </url><url>
+    <loc>/zh-cn/posts/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/"
+                />
+  </url><url>
+    <loc>/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
                 />
   </url><url>
     <loc>/zh-cn/categories/</loc>
@@ -37,18 +76,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="/zh-cn/tags/"
-                />
-  </url><url>
-    <loc>/zh-cn/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/"
                 />
   </url>
 </urlset>

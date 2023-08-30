@@ -11,7 +11,7 @@ draft: false
 - 🌈 How to reach me: xiaqiankun@outlook.com
 
 ![xqk's GitHub stats](https://github-readme-stats.vercel.app/api?username=xqk&show_icons=true&theme=swift&count_private=true&hide=prs&line_height=24.3)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=xqk&layout=compact&show_icons=true&theme=swift&hide=javascript,html,typescript,scss,css,glsl,PLpgSQL,shell,java,vue,JavaScript&langs_count=6&card_width=270)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=xqk&layout=compact&show_icons=true&theme=swift&hide=javascript,html,typescript,scss,css,glsl,PLpgSQL,shell,java,vue,JavaScript&langs_count=2&card_width=467)
 
 
 
