@@ -1,6 +1,6 @@
 +++
 title = "阿里云ECS CENTOS7挂载磁盘"
-date = "2023-07-23T17:17:33+08:00"
+date = "2023-07-12T17:17:33+08:00"
 author = ""
 authorTwitter = "" #do not include @
 cover = ""
