@@ -15,21 +15,8 @@
                 href="/zh-cn/"
                 />
   </url><url>
-    <loc>/zh-cn/about/</loc>
-    <lastmod>2021-08-30T13:42:59+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/about/"
-                />
-  </url><url>
     <loc>/zh-cn/posts/</loc>
-    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +29,7 @@
                 />
   </url><url>
     <loc>/zh-cn/tags/</loc>
-    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +42,23 @@
                 />
   </url><url>
     <loc>/zh-cn/tags/%E6%84%9F%E6%82%9F/</loc>
-    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+  </url><url>
+    <loc>/zh-cn/posts/2023-07-20-you-yi-si-de-wen-an/</loc>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+  </url><url>
+    <loc>/zh-cn/about/</loc>
+    <lastmod>2021-08-30T13:42:59+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/about/"
+                />
   </url><url>
     <loc>/zh-cn/posts/2017-10-23-san-guan/</loc>
     <lastmod>2017-10-23T08:27:09+08:00</lastmod>
