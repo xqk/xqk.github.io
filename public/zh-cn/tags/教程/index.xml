@@ -8,7 +8,68 @@
     <language>zh-cn</language>
     <managingEditor>xiaqiankun@outlook.com (xqk)</managingEditor>
     <webMaster>xiaqiankun@outlook.com (xqk)</webMaster>
-    <lastBuildDate>Tue, 18 Jul 2023 17:18:13 +0800</lastBuildDate><atom:link href="/zh-cn/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 20:51:45 +0800</lastBuildDate><atom:link href="/zh-cn/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ssh免密登陆（精简命令行登陆）</title>
+      <link>/zh-cn/posts/2023-07-19-ssh-mian-mi-deng-lu-jing-jian-ming-ling-xing-deng-lu/</link>
+      <pubDate>Wed, 19 Jul 2023 20:51:45 +0800</pubDate>
+      <author>xiaqiankun@outlook.com (xqk)</author>
+      <guid>/zh-cn/posts/2023-07-19-ssh-mian-mi-deng-lu-jing-jian-ming-ling-xing-deng-lu/</guid>
+      <description>这篇文章简要记录一下免密登陆服务器的具体设置过程。
+每次ssh登陆服务器都需要输入一串字符，还要输入密码比较繁琐。如下：
+ssh username@192.168.1.100 常用的登录命令形式，之后还需要输入密码验证。麻烦。如何才能简化呢。方法如下：
+第一步：简化登陆命令行，效果如下：
+ssh 100 &amp;lt;=等效于=&amp;gt; ssh username@192.168.1.100 方法如下：修改~/.ssh/config （如果没有.ssh或者config，就新建一个）
+Host 100 HostName 192.168.1.100 Port 22 User username 保存后，输入：ssh 100 就可以等了服务器了，但是还是需要输入密码。
+第二步：实现免密码登录
+ssh常用公钥和私钥的方式实现免密码登录，在你安装ssh后，自带了一个ssh-genkey的工具生成公钥和私钥。设置方法如下：
+test@ubuntu:~/.ssh$ ls config test@ubuntu:~/.ssh$ test@ubuntu:~/.ssh$ ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/home/yaolan/.ssh/id_rsa): id_rsa (输入保存的文件名称) Enter passphrase (empty for no passphrase): （输入Enter键） Enter same passphrase again: （输入Enter键） Your identification has been saved in id_rsa. Your public key has been saved in id_rsa.</description>
+      <content>&lt;p&gt;这篇文章简要记录一下免密登陆服务器的具体设置过程。&lt;/p&gt;
+&lt;p&gt;每次ssh登陆服务器都需要输入一串字符，还要输入密码比较繁琐。如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh username@192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;常用的登录命令形式，之后还需要输入密码验证。麻烦。如何才能简化呢。方法如下：&lt;/p&gt;
+&lt;p&gt;第一步：简化登陆命令行，效果如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; &amp;lt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;等效于&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; ssh username@192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;方法如下：修改~/.ssh/config （如果没有.ssh或者config，就新建一个）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HostName 192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Port &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;User username
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;保存后，输入：ssh 100 就可以等了服务器了，但是还是需要输入密码。&lt;/p&gt;
+&lt;p&gt;第二步：实现免密码登录&lt;/p&gt;
+&lt;p&gt;ssh常用公钥和私钥的方式实现免密码登录，在你安装ssh后，自带了一个ssh-genkey的工具生成公钥和私钥。设置方法如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;test@ubuntu:~/.ssh$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;config
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;test@ubuntu:~/.ssh$
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;test@ubuntu:~/.ssh$ ssh-keygen
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Generating public/private rsa key pair.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter file in which to save the key &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;/home/yaolan/.ssh/id_rsa&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: id_rsa &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;输入保存的文件名称&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter passphrase &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;empty &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; no passphrase&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: （输入Enter键）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Enter same passphrase again: （输入Enter键）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Your identification has been saved in id_rsa.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Your public key has been saved in id_rsa.pub.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The key fingerprint is:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;14:b5:e4:73:1a:c7:95:d1:f4:86:3e:0c:6d:6e:cc:ef yaolan@VirtualBox
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The key&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;s randomart image is:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+--&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; RSA 2048&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;----+
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;    ..o  &lt;span class=&#34;nv&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;.&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;     + o o..o&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;    . &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; + o&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;    .  * O . &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;    S .  O &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;       . o &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;        .&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;        . &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;        E&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;test@ubuntu:~/.ssh$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;config id_rsa id_rsa.pub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;id_rsa私钥，id_rsa.pub公钥，采用RSA加密形式。我们只要把 id_rsa.pub里面的公钥添加到服务器上的~/.ssh/authorized_keys文件中即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat ./id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;完成这步，我们就可以免密码等了&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>搜索服务器选购及部署</title>
       <link>/zh-cn/posts/2023-07-18-sou-suo-fu-wu-qi-xuan-gou-ji-bu-shu/</link>

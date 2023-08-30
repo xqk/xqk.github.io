@@ -10,3 +10,5 @@ framed: true
 - 🌱 I’m currently learning Multimodal Learning
 - 👯 I’m looking to collaborate on Zero-shot learning
 - 🌈 How to reach me: xiaqiankun@outlook.com
+
+别整太大鸭力,多鸡立自己qaq
