@@ -9,7 +9,7 @@ tags = ["生活"]
 keywords = ["买房"]
 description = "三观即人生观、世界观、价值观。"
 showFullContent = false
-readingTime = false
+readingTime = true
 hideComments = false
 color = "" #color from the theme settings
 +++

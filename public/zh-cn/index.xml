@@ -33,6 +33,58 @@
     </item>
     
     <item>
+      <title>购车</title>
+      <link>/zh-cn/posts/2022-10-04-gou-che/</link>
+      <pubDate>Tue, 04 Oct 2022 14:29:23 +0800</pubDate>
+      <author>xiaqiankun@outlook.com (xqk)</author>
+      <guid>/zh-cn/posts/2022-10-04-gou-che/</guid>
+      <description>奥迪流程 1、首付款 2、验车 3、付尾款
+验车注意事项
+4档升5档异响 漆面是否完好（车门边缘、保险杠底部） 检查出厂日期（一般在副驾驶侧） 轮胎出厂日期（例如：3321 = 21年的33周） 玻璃的生产日期（要早于车的出厂日期，例如：1….. = 21年8[13-5个点数]月） 奥迪清单
+首保保养券 新车交车表 售后电话 交强险和商业险保单 车子使用说明书 车辆销售合同 汽车合格证 两把钥匙 随车物品千斤顶、备胎工具 身份证 发票三联 汽车登记证书（抵押） 三包凭证 行驶证 改装
+主动刹车 前方碰撞预警 车道偏离预警 并线辅助 车道保持辅助系统 自适应巡航 </description>
+      <content>&lt;p&gt;奥迪流程
+1、首付款
+2、验车
+3、付尾款&lt;/p&gt;
+&lt;p&gt;验车注意事项&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 4档升5档异响&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 漆面是否完好（车门边缘、保险杠底部）&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 检查出厂日期（一般在副驾驶侧）&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 轮胎出厂日期（例如：3321 = 21年的33周）&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 玻璃的生产日期（要早于车的出厂日期，例如：1….. = 21年8[13-5个点数]月）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;奥迪清单&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 首保保养券&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 新车交车表&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 售后电话&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 交强险和商业险保单&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 车子使用说明书&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 车辆销售合同&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 汽车合格证&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 两把钥匙&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 随车物品千斤顶、备胎工具&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 身份证&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 发票三联&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 汽车登记证书（抵押）&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 三包凭证&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 行驶证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;改装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 主动刹车&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 前方碰撞预警&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 车道偏离预警&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 并线辅助&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 车道保持辅助系统&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 自适应巡航&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
       <title>关于</title>
       <link>/zh-cn/about/</link>
       <pubDate>Mon, 30 Aug 2021 13:42:59 +0800</pubDate>

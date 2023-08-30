@@ -67,6 +67,22 @@
                 href="/zh-cn/posts/2023-07-20-you-yi-si-de-wen-an/"
                 />
   </url><url>
+    <loc>/zh-cn/posts/2022-10-04-gou-che/</loc>
+    <lastmod>2022-10-04T14:29:23+08:00</lastmod>
+  </url><url>
+    <loc>/zh-cn/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2022-10-04T14:29:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/%E7%94%9F%E6%B4%BB/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/tags/%E7%94%9F%E6%B4%BB/"
+                />
+  </url><url>
     <loc>/zh-cn/about/</loc>
     <lastmod>2021-08-30T13:42:59+08:00</lastmod>
     <xhtml:link
@@ -104,19 +120,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
-                />
-  </url><url>
-    <loc>/zh-cn/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tags/%E7%94%9F%E6%B4%BB/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/tags/%E7%94%9F%E6%B4%BB/"
                 />
   </url><url>
     <loc>/zh-cn/categories/</loc>

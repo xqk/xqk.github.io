@@ -77,7 +77,7 @@ paginate = 5
     missingContentMessage = "页面没找到..."
     missingBackButtonLabel = "返回主页"
     minuteReadingTime = "分钟阅读"
-    words = "字数"
+    words = "words"
     contentDir = 'content/zh-cn'
 
     [languages.zh-cn.params.logo]
