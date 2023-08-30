@@ -8,7 +8,40 @@
     <language>zh-cn</language>
     <managingEditor>xiaqiankun@outlook.com (xqk)</managingEditor>
     <webMaster>xiaqiankun@outlook.com (xqk)</webMaster>
-    <lastBuildDate>Thu, 20 Jul 2023 21:55:21 +0800</lastBuildDate><atom:link href="/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jul 2023 17:17:33 +0800</lastBuildDate><atom:link href="/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>阿里云ECS CENTOS7挂载磁盘</title>
+      <link>/zh-cn/posts/2023-07-23-a-li-yun-ecs-centos7-gua-zai-ci-pan/</link>
+      <pubDate>Sun, 23 Jul 2023 17:17:33 +0800</pubDate>
+      <author>xiaqiankun@outlook.com (xqk)</author>
+      <guid>/zh-cn/posts/2023-07-23-a-li-yun-ecs-centos7-gua-zai-ci-pan/</guid>
+      <description>挂载第1个磁盘：
+运行 fdisk -l 命令查看数据盘 运行 fdisk /dev/vdb，对数据盘进行分区。根据提示，依次输入 n，p，1，两次回车，wq，分区就开始了 运行 fdisk -l 命令，查看新的分区 运行 mkfs.ext3 /dev/vdb1，对新分区进行格式化。格式化所需时间取决于数据盘大小 运行 echo /dev/vdb1 /data ext3 defaults 0 0 &amp;raquo; /etc/fstab 写入新分区信息。完成后，可以使用 cat /etc/fstab 命令查看 运行 mkdir /data 运行 mount -a 挂载新分区，然后执行 df -h 查看分区 挂载第2个磁盘：
+运行 fdisk -l 命令查看数据盘 运行 fdisk /dev/vdc，对数据盘进行分区。根据提示，依次输入 n，p，1，两次回车，wq，分区就开始了 运行 fdisk -l 命令，查看新的分区 运行 mkfs.ext3 /dev/vdc1，对新分区进行格式化。格式化所需时间取决于数据盘大小 运行 echo /dev/vdc1 /backup ext3 defaults 0 0 &amp;raquo; /etc/fstab 写入新分区信息。完成后，可以使用 cat /etc/fstab 命令查看 运行 mkdir /backup 运行 mount -a 挂载新分区，然后执行 df -h 查看分区 挂载第N个磁盘：&amp;hellip;&amp;hellip;</description>
+      <content>&lt;p&gt;挂载第1个磁盘：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行 fdisk -l 命令查看数据盘&lt;/li&gt;
+&lt;li&gt;运行 fdisk /dev/vdb，对数据盘进行分区。根据提示，依次输入 n，p，1，两次回车，wq，分区就开始了&lt;/li&gt;
+&lt;li&gt;运行 fdisk -l 命令，查看新的分区&lt;/li&gt;
+&lt;li&gt;运行 mkfs.ext3 /dev/vdb1，对新分区进行格式化。格式化所需时间取决于数据盘大小&lt;/li&gt;
+&lt;li&gt;运行 echo /dev/vdb1 /data ext3 defaults 0 0 &amp;raquo; /etc/fstab 写入新分区信息。完成后，可以使用 cat /etc/fstab 命令查看&lt;/li&gt;
+&lt;li&gt;运行 mkdir /data&lt;/li&gt;
+&lt;li&gt;运行 mount -a 挂载新分区，然后执行 df -h 查看分区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;挂载第2个磁盘：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行 fdisk -l 命令查看数据盘&lt;/li&gt;
+&lt;li&gt;运行 fdisk /dev/vdc，对数据盘进行分区。根据提示，依次输入 n，p，1，两次回车，wq，分区就开始了&lt;/li&gt;
+&lt;li&gt;运行 fdisk -l 命令，查看新的分区&lt;/li&gt;
+&lt;li&gt;运行 mkfs.ext3 /dev/vdc1，对新分区进行格式化。格式化所需时间取决于数据盘大小&lt;/li&gt;
+&lt;li&gt;运行 echo /dev/vdc1 /backup ext3 defaults 0 0 &amp;raquo; /etc/fstab 写入新分区信息。完成后，可以使用 cat /etc/fstab 命令查看&lt;/li&gt;
+&lt;li&gt;运行 mkdir /backup&lt;/li&gt;
+&lt;li&gt;运行 mount -a 挂载新分区，然后执行 df -h 查看分区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;挂载第N个磁盘：&amp;hellip;&amp;hellip;&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>有意思的文案</title>
       <link>/zh-cn/posts/2023-07-20-you-yi-si-de-wen-an/</link>
@@ -96,6 +129,32 @@ cpu 8核&lt;/p&gt;
 &lt;p&gt;一旦你越过那个神奇的 ~32 GB 的边界，指针就会切回普通对象的指针。 每个对象的指针都变长了，就会使用更多的 CPU 内存带宽，也就是说你实际上失去了更多的内存。事实上，当内存到达 40–50 GB 的时候，有效内存才相当于使用内存对象指针压缩技术时候的 32 GB 内存。&lt;/p&gt;
 &lt;p&gt;这段描述的意思就是说：即便你有足够的内存，也尽量不要 超过 32 GB。因为它浪费了内存，降低了 CPU 的性能，还要让 GC 应对大内存。&lt;/p&gt;
 </content>
+    </item>
+    
+    <item>
+      <title>centos怎么查看服务是否是开机启动</title>
+      <link>/zh-cn/posts/2023-07-13-centos-zen-me-cha-kan-fu-wu-shi-fou-shi-kai-ji-qi-dong/</link>
+      <pubDate>Thu, 13 Jul 2023 11:21:15 +0800</pubDate>
+      <author>xiaqiankun@outlook.com (xqk)</author>
+      <guid>/zh-cn/posts/2023-07-13-centos-zen-me-cha-kan-fu-wu-shi-fou-shi-kai-ji-qi-dong/</guid>
+      <description>有的时候我们想一个服务开机自启动，但是设置好了以后不知道是不是成功以，我们可以用如下的命令来查看： 1、查看开机启动项
+systemctl list-unit-files 2、查看某些服务开机启动状态
+systemctl list-unit-files | grep 程序名称 3、斜体样式查看哪些为开机启动服务
+systemctl list-unit-files | grep enable 4、开启自启动
+systemctl enable 程序名称 5、关闭自启动
+systemctl disable 程序名称 </description>
+      <content>&lt;p&gt;有的时候我们想一个服务开机自启动，但是设置好了以后不知道是不是成功以，我们可以用如下的命令来查看：
+1、查看开机启动项&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl list-unit-files
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2、查看某些服务开机启动状态&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl list-unit-files &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep 程序名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3、斜体样式查看哪些为开机启动服务&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl list-unit-files &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4、开启自启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; 程序名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;5、关闭自启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl disable 程序名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
     <item>
