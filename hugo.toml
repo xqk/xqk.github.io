@@ -94,6 +94,11 @@ paginate = 5
         weight = 20
         identifier = "archives"
         url = "/zh-cn/posts/"
+      [[languages.zh-cn.menu.main]]
+        name = "标签"
+        weight = 20
+        identifier = "tags"
+        url = "/zh-cn/tags/"
 
   [languages.en]
     languageName = "English"
@@ -123,10 +128,15 @@ paginate = 5
         name = "About"
         url = "/en/about"
       [[languages.en.menu.main]]
-        name = "archives"
+        name = "Archives"
         weight = 20
         identifier = "archives"
         url = "/en/posts/"
+      [[languages.en.menu.main]]
+        name = "Tags"
+        weight = 20
+        identifier = "tags"
+        url = "/en/tags/"
 
 [markup]
   [markup.highlight]

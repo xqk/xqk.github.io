@@ -1,8 +1,18 @@
----
-title: "买房注意事项"
-date: 2017-06-05T15:56:28+08:00
-draft: false
----
++++
+title = "买房注意事项"
+date = 2017-06-05T15:56:28+08:00
+draft = false
+author = ""
+authorTwitter = "" #do not include @
+cover = ""
+tags = ["生活"]
+keywords = ["买房"]
+description = "三观即人生观、世界观、价值观。"
+showFullContent = false
+readingTime = false
+hideComments = false
+color = "" #color from the theme settings
++++
 
 注意⚠️：发票和住房合同
 

@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>/zh-cn/posts/</loc>
-    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -40,6 +40,25 @@
                 hreflang="zh-cn"
                 href="/zh-cn/posts/"
                 />
+  </url><url>
+    <loc>/zh-cn/tags/</loc>
+    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/tags/"
+                />
+  </url><url>
+    <loc>/zh-cn/tags/%E6%84%9F%E6%82%9F/</loc>
+    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
+  </url><url>
+    <loc>/zh-cn/posts/2017-10-23-san-guan/</loc>
+    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
   </url><url>
     <loc>/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</loc>
     <lastmod>2017-06-05T15:56:28+08:00</lastmod>
@@ -54,6 +73,19 @@
                 href="/zh-cn/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/"
                 />
   </url><url>
+    <loc>/zh-cn/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/%E7%94%9F%E6%B4%BB/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/tags/%E7%94%9F%E6%B4%BB/"
+                />
+  </url><url>
     <loc>/zh-cn/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -64,18 +96,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="/zh-cn/categories/"
-                />
-  </url><url>
-    <loc>/zh-cn/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/tags/"
                 />
   </url>
 </urlset>
