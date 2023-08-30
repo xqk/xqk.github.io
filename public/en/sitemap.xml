@@ -15,6 +15,58 @@
                 href="/en/"
                 />
   </url><url>
+    <loc>/en/posts/</loc>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/"
+                />
+  </url><url>
+    <loc>/en/tags/</loc>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+  </url><url>
+    <loc>/en/tags/%E6%84%9F%E6%82%9F/</loc>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/tags/%E6%84%9F%E6%82%9F/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/%E6%84%9F%E6%82%9F/"
+                />
+  </url><url>
+    <loc>/en/posts/2023-07-20-you-yi-si-de-wen-an/</loc>
+    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/2023-07-20-you-yi-si-de-wen-an/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/2023-07-20-you-yi-si-de-wen-an/"
+                />
+  </url><url>
     <loc>/en/about/</loc>
     <lastmod>2021-08-30T13:42:59+08:00</lastmod>
     <xhtml:link
@@ -28,30 +80,17 @@
                 href="/en/about/"
                 />
   </url><url>
-    <loc>/en/posts/</loc>
-    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
+    <loc>/en/posts/2017-10-23-san-guan/</loc>
+    <lastmod>2017-10-23T08:27:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="/zh-cn/posts/"
+                href="/zh-cn/posts/2017-10-23-san-guan/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/posts/"
-                />
-  </url><url>
-    <loc>/en/tags/</loc>
-    <lastmod>2017-06-05T15:56:28+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tags/"
+                href="/en/posts/2017-10-23-san-guan/"
                 />
   </url><url>
     <loc>/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</loc>

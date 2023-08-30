@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Let&#39;s fight monsters and upgrade together</title>
-    <link>/en/</link>
-    <description>Recent content on Let&#39;s fight monsters and upgrade together</description>
+    <title>感悟 on Let&#39;s fight monsters and upgrade together</title>
+    <link>/en/tags/%E6%84%9F%E6%82%9F/</link>
+    <description>Recent content in 感悟 on Let&#39;s fight monsters and upgrade together</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>xiaqiankun@outlook.com (xqk)</managingEditor>
     <webMaster>xiaqiankun@outlook.com (xqk)</webMaster>
-    <lastBuildDate>Wed, 30 Aug 2023 17:08:26 +0800</lastBuildDate><atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jul 2023 21:55:21 +0800</lastBuildDate><atom:link href="/en/tags/%E6%84%9F%E6%82%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>有意思的文案</title>
       <link>/en/posts/2023-07-20-you-yi-si-de-wen-an/</link>
@@ -33,27 +33,6 @@
     </item>
     
     <item>
-      <title>About</title>
-      <link>/en/about/</link>
-      <pubDate>Mon, 30 Aug 2021 13:42:59 +0800</pubDate>
-      <author>xiaqiankun@outlook.com (xqk)</author>
-      <guid>/en/about/</guid>
-      <description>Hi all 👋 🧑🏻‍💻 I’m currently working on zhukehulian 🌱 I’m currently learning Multimodal Learning 👯 I’m looking to collaborate on Zero-shot learning 🌈 How to reach me: xiaqiankun@outlook.com </description>
-      <content>&lt;h3 id=&#34;hi-all-&#34;&gt;Hi all 👋&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🧑🏻‍💻 I’m currently working on zhukehulian&lt;/li&gt;
-&lt;li&gt;🌱 I’m currently learning Multimodal Learning&lt;/li&gt;
-&lt;li&gt;👯 I’m looking to collaborate on Zero-shot learning&lt;/li&gt;
-&lt;li&gt;🌈 How to reach me: &lt;a href=&#34;mailto:xiaqiankun@outlook.com&#34;&gt;xiaqiankun@outlook.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://github-readme-stats.vercel.app/api?username=xqk&amp;amp;show_icons=true&amp;amp;theme=swift&amp;amp;count_private=true&amp;amp;hide=prs&amp;amp;line_height=24.3&#34; alt=&#34;xqk&amp;rsquo;s GitHub stats&#34;&gt;
-&lt;img src=&#34;https://github-readme-stats.vercel.app/api/top-langs/?username=xqk&amp;amp;layout=compact&amp;amp;show_icons=true&amp;amp;theme=swift&amp;amp;hide=javascript,html,typescript,scss,css,glsl,PLpgSQL,shell,java,vue,JavaScript&amp;amp;langs_count=2&amp;amp;card_width=467&#34; alt=&#34;Top Langs&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-</content>
-    </item>
-    
-    <item>
       <title>三观</title>
       <link>/en/posts/2017-10-23-san-guan/</link>
       <pubDate>Mon, 23 Oct 2017 08:27:09 +0800</pubDate>
@@ -73,22 +52,6 @@
 &lt;p&gt;生活中有些人待人和善处事得体，和这样的人接触自然如沐春风；但有些人却总让你的生活处处添堵，见不得你半点好。&lt;/p&gt;
 &lt;p&gt;所谓“道不同不相为谋”，
 说的其实就是三观相合与否这个道理。&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>买房注意事项</title>
-      <link>/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</link>
-      <pubDate>Mon, 05 Jun 2017 15:56:28 +0800</pubDate>
-      <author>xiaqiankun@outlook.com (xqk)</author>
-      <guid>/en/posts/2017-06-05-mai-fang-zhu-yi-shi-xiang/</guid>
-      <description>注意⚠️：发票和住房合同
-1 找点：一天至少6个楼盘，勿和销售 2 确定意向点：挑选出3～4个楼盘（多和买房人聊聊，了解楼盘的详细情况，附近政策！！，80%的小道消息都是真的，勿和销售细谈） 3 比较优缺点：风格、价位、开发商、现房还是期房（交房时间） 4 明确点，考虑细节：银行、材料、首付款</description>
-      <content>&lt;p&gt;注意⚠️：发票和住房合同&lt;/p&gt;
-&lt;p&gt;1 找点：一天至少6个楼盘，勿和销售
-2 确定意向点：挑选出3～4个楼盘（多和买房人聊聊，了解楼盘的详细情况，附近政策！！，80%的小道消息都是真的，勿和销售细谈）
-3 比较优缺点：风格、价位、开发商、现房还是期房（交房时间）
-4 明确点，考虑细节：银行、材料、首付款&lt;/p&gt;
 </content>
     </item>
     
