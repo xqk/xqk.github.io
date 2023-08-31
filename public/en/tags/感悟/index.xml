@@ -8,7 +8,59 @@
     <language>en</language>
     <managingEditor>xiaqiankun@outlook.com (xqk)</managingEditor>
     <webMaster>xiaqiankun@outlook.com (xqk)</webMaster>
-    <lastBuildDate>Thu, 20 Jul 2023 21:55:21 +0800</lastBuildDate><atom:link href="/en/tags/%E6%84%9F%E6%82%9F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 20:24:30 +0800</lastBuildDate><atom:link href="/en/tags/%E6%84%9F%E6%82%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术组长管理经验总结</title>
+      <link>/en/posts/2023-08-30-ji-shu-zu-zhang-guan-li-jing-yan-zong-jie/</link>
+      <pubDate>Wed, 30 Aug 2023 20:24:30 +0800</pubDate>
+      <author>xiaqiankun@outlook.com (xqk)</author>
+      <guid>/en/posts/2023-08-30-ji-shu-zu-zhang-guan-li-jing-yan-zong-jie/</guid>
+      <description>毛泽东同志说，“领导者的责任，归结起来，主要地是出主意、用干部两件事。”。对于技术领导者的责任，同样是出主意、用人才两件事。
+出主意包括： 评审需求，理解产品功能的价值，不能被动的接受产品经理的需求，评审阶段要勇于对需求的价值提出质疑，需要对需求的方案和难度心中有数，对于高价值、需攻坚的需求要重点关注。 需要掌握整体架构，了解架构的优势，更要了解架构的不足之处，了解架构中核心模块的原理，引导架构向更好的方向演化，满足业务的发展。 做好关键模块的技术选型，或者交由组员给出方案调研评估，并最终定案。 评审技术方案，提前发现纰漏 制定各种规范，并推动团体成员践行。 用人才包括： 面试 一定要自己去找寻志同道合的组员 明确的目标 给组员安排工作，必须指定明确的目标，并给他们讲清楚需求的背景和价值，这样他们才能更有参与感，更好的完成工作 培养他们 放心的将任务分配给组员，大胆的启用新人，指导他们方案思路，评审他们的方案，纠正他们的错误，但给他们试错的机会 关心他们 了解他们的工作情况，给他们制定成长的方向，定期谈话，诚恳的批评他们的不足，了解他们的困难，并尽量利用公司资源解决 培养积极分子 挖掘积极分子，用积极分子带动中间分子和消极分子。 开发团队三大纪律，八项注意： 三大纪律：
+自测通过才能提测 一切bug要有结论 报警要解决 八项注意：
+不推卸责任 对待同事要和气 遵守开发规范 评估工时要合理 做事有反馈 不敷衍了事 保持学习 工作时间不摸鱼 参考 中国共产党在民族战争中的地位 </description>
+      <content>&lt;p&gt;毛泽东同志说，“&lt;strong&gt;领导者的责任，归结起来，主要地是出主意、用干部两件事。&lt;/strong&gt;”。对于技术领导者的责任，同样是出主意、用人才两件事。&lt;/p&gt;
+&lt;h2 id=&#34;出主意包括&#34;&gt;出主意包括：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;评审需求，理解产品功能的价值，不能被动的接受产品经理的需求，评审阶段要勇于对需求的价值提出质疑，需要对需求的方案和难度心中有数，对于高价值、需攻坚的需求要重点关注。&lt;/li&gt;
+&lt;li&gt;需要掌握整体架构，了解架构的优势，更要了解架构的不足之处，了解架构中核心模块的原理，引导架构向更好的方向演化，满足业务的发展。&lt;/li&gt;
+&lt;li&gt;做好关键模块的技术选型，或者交由组员给出方案调研评估，并最终定案。&lt;/li&gt;
+&lt;li&gt;评审技术方案，提前发现纰漏&lt;/li&gt;
+&lt;li&gt;制定各种规范，并推动团体成员践行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;用人才包括&#34;&gt;用人才包括：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;面试 一定要自己去找寻志同道合的组员&lt;/li&gt;
+&lt;li&gt;明确的目标 给组员安排工作，必须指定明确的目标，并给他们讲清楚需求的背景和价值，这样他们才能更有参与感，更好的完成工作&lt;/li&gt;
+&lt;li&gt;培养他们 放心的将任务分配给组员，大胆的启用新人，指导他们方案思路，评审他们的方案，纠正他们的错误，但给他们试错的机会&lt;/li&gt;
+&lt;li&gt;关心他们 了解他们的工作情况，给他们制定成长的方向，定期谈话，诚恳的批评他们的不足，了解他们的困难，并尽量利用公司资源解决&lt;/li&gt;
+&lt;li&gt;培养积极分子 挖掘积极分子，用积极分子带动中间分子和消极分子。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;开发团队三大纪律八项注意&#34;&gt;开发团队三大纪律，八项注意：&lt;/h2&gt;
+&lt;p&gt;三大纪律：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自测通过才能提测&lt;/li&gt;
+&lt;li&gt;一切bug要有结论&lt;/li&gt;
+&lt;li&gt;报警要解决&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;八项注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不推卸责任&lt;/li&gt;
+&lt;li&gt;对待同事要和气&lt;/li&gt;
+&lt;li&gt;遵守开发规范&lt;/li&gt;
+&lt;li&gt;评估工时要合理&lt;/li&gt;
+&lt;li&gt;做事有反馈&lt;/li&gt;
+&lt;li&gt;不敷衍了事&lt;/li&gt;
+&lt;li&gt;保持学习&lt;/li&gt;
+&lt;li&gt;工作时间不摸鱼&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.marxists.org/chinese/maozedong/marxist.org-chinese-mao-19381014.htm&#34;&gt;中国共产党在民族战争中的地位&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>有意思的文案</title>
       <link>/en/posts/2023-07-20-you-yi-si-de-wen-an/</link>

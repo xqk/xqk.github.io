@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/zh-cn/</loc>
-    <lastmod>2023-08-30T17:08:26+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="/zh-cn/"
-                />
-  </url><url>
     <loc>/zh-cn/posts/</loc>
-    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <lastmod>2023-08-30T20:24:30+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +16,7 @@
                 />
   </url><url>
     <loc>/zh-cn/tags/</loc>
-    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <lastmod>2023-08-30T20:24:30+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +29,7 @@
                 />
   </url><url>
     <loc>/zh-cn/tags/%E6%84%9F%E6%82%9F/</loc>
-    <lastmod>2023-07-20T21:55:21+08:00</lastmod>
+    <lastmod>2023-08-30T20:24:30+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -52,6 +39,32 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="/zh-cn/tags/%E6%84%9F%E6%82%9F/"
+                />
+  </url><url>
+    <loc>/zh-cn/posts/2023-08-30-ji-shu-zu-zhang-guan-li-jing-yan-zong-jie/</loc>
+    <lastmod>2023-08-30T20:24:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/posts/2023-08-30-ji-shu-zu-zhang-guan-li-jing-yan-zong-jie/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/posts/2023-08-30-ji-shu-zu-zhang-guan-li-jing-yan-zong-jie/"
+                />
+  </url><url>
+    <loc>/zh-cn/</loc>
+    <lastmod>2023-08-30T17:08:26+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="/zh-cn/"
                 />
   </url><url>
     <loc>/zh-cn/posts/2023-07-20-you-yi-si-de-wen-an/</loc>
