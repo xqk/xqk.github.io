@@ -9,7 +9,7 @@ tags = ["生活"]
 keywords = ["买房"]
 description = "..."
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++

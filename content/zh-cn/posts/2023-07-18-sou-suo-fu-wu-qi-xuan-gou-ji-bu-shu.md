@@ -8,7 +8,7 @@ tags = ["教程"]
 keywords = ["搜索服务器", "es"]
 description = "..."
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++

@@ -8,7 +8,7 @@ tags = ["教程"]
 keywords = ["阿里云", "ECS", "磁盘"]
 description = ""
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++

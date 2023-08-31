@@ -8,7 +8,7 @@ tags = ["教程"]
 keywords = ["", ""]
 description = "这篇文章简要记录一下免密登陆服务器的具体设置过程。"
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++

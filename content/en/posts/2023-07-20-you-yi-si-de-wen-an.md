@@ -8,7 +8,7 @@ tags = ["感悟"]
 keywords = ["有意思", "文案"]
 description = "人一到群体中，智商就严重降低，为了获得认同，个体愿意抛弃是非，用智商去换取那份让人备感安全的归属感。"
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++

@@ -8,7 +8,7 @@ tags = ["教程"]
 keywords = ["centos", "开机服务"]
 description = ""
 showFullContent = false
-readingTime = true
+readingTime = false
 hideComments = false
 color = "" #color from the theme settings
 +++
