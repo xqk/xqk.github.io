@@ -81,7 +81,7 @@ paginate = 5
     contentDir = 'content/zh-cn'
 
     [languages.zh-cn.params.logo]
-      logoText = "ICL"
+      logoText = "ICL::一起打怪升级呀"
       logoHomeLink = "/"
 
     [languages.zh-cn.menu]
@@ -119,7 +119,7 @@ paginate = 5
     contentDir = 'content/en'
 
     [languages.en.params.logo]
-      logoText = "ICL"
+      logoText = "ICL::Let's fight monsters and upgrade together"
       logoHomeLink = "/"
 
     [languages.en.menu]
