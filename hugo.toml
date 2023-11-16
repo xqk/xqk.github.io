@@ -1,6 +1,6 @@
 baseURL = '/'
 languageCode = 'en-us'
-title = '一起打怪升级呀'
+title = '酷酷的程序猿'
 theme = 'terminal'
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = "true"
@@ -60,11 +60,14 @@ paginate = 5
   # can be overridden in a page's front-matter
   # TocTitle = "Table of Contents" # default
 
+  [params.mermaid]
+    js_url = 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.1.0/mermaid.esm.min.mjs'
+
 
 [languages]
   [languages.zh-cn]
     languageName = "简体中文"
-    title = "一起打怪升级呀"
+    title = "酷酷的程序猿"
     subtitle = "别整太大鸭力,多鸡立自己qaq"
     owner = ""
     keywords = ""
@@ -141,3 +144,7 @@ paginate = 5
 [markup]
   [markup.highlight]
     noClasses = false
+
+[module]
+  [[module.imports]]
+    path = "github.com/hugomods/mermaid"
