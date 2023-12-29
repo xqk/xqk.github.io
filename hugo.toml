@@ -67,7 +67,7 @@ paginate = 5
 [languages]
   [languages.zh-cn]
     languageName = "简体中文"
-    title = "酷酷的程序猿"
+    title = "一起打怪升级呀"
     subtitle = "别整太大鸭力,多鸡立自己qaq"
     owner = ""
     keywords = ""
