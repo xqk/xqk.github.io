@@ -3,7 +3,7 @@
 <head>
 	<meta name="generator" content="Hugo 0.117.0">
   
-    <title>一起打怪升级呀</title>
+    <title>酷酷的程序猿</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,10 +42,10 @@
 
 <meta property="og:locale" content="zh-cn" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="一起打怪升级呀">
+<meta property="og:title" content="酷酷的程序猿">
 <meta property="og:description" content="别整太大鸭力,多鸡立自己qaq" />
 <meta property="og:url" content="/zh-cn/" />
-<meta property="og:site_name" content="一起打怪升级呀" />
+<meta property="og:site_name" content="酷酷的程序猿" />
 
   
     <meta property="og:image" content="/favicon.ico">
@@ -60,7 +60,7 @@
 
 
 
-  <link href="/zh-cn/index.xml" rel="alternate" type="application/rss+xml" title="一起打怪升级呀" />
+  <link href="/zh-cn/index.xml" rel="alternate" type="application/rss+xml" title="酷酷的程序猿" />
 
 
 
@@ -188,6 +188,42 @@
     
     
 
+    
+      <article class="post on-list">
+        <h1 class="post-title">
+          <a href="/zh-cn/posts/2023-07-13-centos-zen-me-cha-kan-fu-wu-shi-fou-shi-kai-ji-qi-dong/">centos怎么查看服务是否是开机启动</a>
+        </h1>
+
+        <div class="post-meta"><time class="post-date">2023-07-13</time></div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/zh-cn/tags/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+
+        <div class="post-content">
+          
+            有的时候我们想一个服务开机自启动，但是设置好了以后不知道是不是成功以，我们可以用如下的命令来查看： 1、查看开机启动项
+systemctl list-unit-files 2、查看某些服务开机启动状态
+systemctl list-unit-files | grep 程序名称 3、斜体样式查看哪些为开机启动服务
+systemctl list-unit-files | grep enable 4、开启自启动
+systemctl enable 程序名称 5、关闭自启动
+systemctl disable 程序名称 
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button" href="/zh-cn/posts/2023-07-13-centos-zen-me-cha-kan-fu-wu-shi-fou-shi-kai-ji-qi-dong/">阅读更多 →</a>
+          </div>
+        
+      </article>
     
       <article class="post on-list">
         <h1 class="post-title">
