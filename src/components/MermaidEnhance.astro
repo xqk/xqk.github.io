@@ -29,7 +29,9 @@
       });
 
       for (const [index, holder] of holders.entries()) {
-        const source = holder.textContent || '';
+        // 去掉占位 script 里的首尾空白：mermaid 的前言匹配不容忍前导换行，
+        // 以 `---` 开头的 YAML 前言会因此提取失败
+        const source = (holder.textContent || '').trim();
         const host = document.createElement('div');
         host.className = 'diagram';
         try {

@@ -31,9 +31,16 @@ const remarkDiagramBlocks = () => (tree) => {
 
       if (node.type === 'code' && SUPPORTED.has(lang)) {
         const payload = String(node.value ?? '').replace(/<\/script/gi, '<\\/script');
+
+        /*
+         * 起始标签的 `>` 之后不能有换行——mermaid 的前言匹配只跳过行首的
+         * 非换行空白（见 matchFrontMatter），一个前导 \n 就会让以 `---` 开头的
+         * YAML 前言提取失败，剩余文本仍以 `---` 开头，于是报
+         * "Diagrams beginning with --- are not valid"。
+         */
         return {
           type: 'html',
-          value: `<script type="text/plain" data-diagram="${lang}">\n${payload}\n</script>`,
+          value: `<script type="text/plain" data-diagram="${lang}">${payload.trimStart()}\n</script>`,
         };
       }
 
