@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import HetiEnhance from '../components/HetiEnhance.astro';
+import MermaidEnhance from '../components/MermaidEnhance.astro';
 import { formatDateCN, postHref, readingMinutes, type Post } from '../utils/posts';
 import type { MarkdownHeading } from 'astro';
 
@@ -105,4 +106,5 @@ const showToc = toc && tocItems.length >= 2;
   </article>
 
   <HetiEnhance />
+  <MermaidEnhance />
 </BaseLayout>

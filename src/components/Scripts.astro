@@ -9,8 +9,8 @@
   (() => {
     'use strict';
 
+    // mermaid 已改为本地依赖，见 src/components/MermaidEnhance.astro
     const CDN = {
-      mermaid: 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.1.0/mermaid.esm.min.mjs',
       echarts: 'https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js',
       jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js',
     };
@@ -143,35 +143,7 @@
       apply();
     }
 
-    /* 6. mermaid 图表 */
-    const mermaidBlocks = collectDiagrams('mermaid');
-    if (mermaidBlocks.length) {
-      import(CDN.mermaid)
-        .then((mod) => {
-          const mermaid = mod.default ?? mod;
-          mermaid.initialize({
-            startOnLoad: false,
-            securityLevel: 'loose',
-            theme: root.dataset.theme === 'dark' ? 'dark' : 'default',
-            fontFamily: 'inherit',
-          });
-          mermaidBlocks.forEach(async ({ holder, source }, i) => {
-            const host = document.createElement('div');
-            host.className = 'diagram';
-            try {
-              const { svg } = await mermaid.render('mermaid-' + i, source);
-              host.innerHTML = svg;
-            } catch (err) {
-              host.textContent = source;
-              console.warn('[mermaid] 渲染失败', err);
-            }
-            holder.replaceWith(host);
-          });
-        })
-        .catch((err) => console.warn('[mermaid] 资源加载失败', err));
-    }
-
-    /* 7. echarts 图表（附 jQuery，兼容旧文里 $.ajax 同步取 GeoJSON 的写法） */
+    /* 6. echarts 图表（附 jQuery，兼容旧文里 $.ajax 同步取 GeoJSON 的写法） */
     const chartBlocks = collectDiagrams('echarts');
     if (chartBlocks.length) {
       const loadScript = (src) =>

@@ -1,0 +1,53 @@
+---
+/**
+ * mermaid 图表渲染。
+ *
+ * 走本地依赖而不是 CDN：此前 CDN 锁在 10.1.0，而正文里用到了 timeline（≥10.3）、
+ * quadrantChart（≥10.2）以及 YAML 前言里的 `look: handDrawn`（≥11），
+ * 结果 8 个图表里有 5 个渲染不出来。改成随 lockfile 锁版本，升级是一次显式操作。
+ *
+ * 图表代码在正文里是 `<script type="text/plain" data-diagram="mermaid">` 占位，
+ * 由 astro.config.mjs 的 remarkDiagramBlocks 生成。
+ */
+---
+
+<script>
+  const holders = [
+    ...document.querySelectorAll('script[type="text/plain"][data-diagram="mermaid"]'),
+  ];
+
+  if (holders.length > 0) {
+    const renderAll = async () => {
+      // 动态引入，mermaid 只在含图表的页面才下载
+      const mermaid = (await import('mermaid')).default;
+
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default',
+        fontFamily: 'inherit',
+      });
+
+      for (const [index, holder] of holders.entries()) {
+        const source = holder.textContent || '';
+        const host = document.createElement('div');
+        host.className = 'diagram';
+        try {
+          const { svg } = await mermaid.render(`mermaid-${index}`, source);
+          host.innerHTML = svg;
+        } catch (err) {
+          // 渲染失败就退回显示源码，至少不丢内容
+          host.textContent = source;
+          console.warn('[mermaid] 渲染失败', err);
+        }
+        holder.replaceWith(host);
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderAll, { once: true });
+    } else {
+      renderAll();
+    }
+  }
+</script>

@@ -2,6 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HetiEnhance from '../../components/HetiEnhance.astro';
+import MermaidEnhance from '../../components/MermaidEnhance.astro';
 import { formatDateCN } from '../../utils/posts';
 
 const entry = await getEntry('pages', 'about');
@@ -27,4 +28,5 @@ const { title, description, date } = entry.data;
   </article>
 
   <HetiEnhance />
+  <MermaidEnhance />
 </BaseLayout>
