@@ -2,7 +2,12 @@
  * 站点全局配置。改这里就能改站名、标语、导航和社交链接，不用动组件。
  */
 export const site = {
-  url: 'https://xqk.github.io',
+  /**
+   * 站点规范地址。本仓库配的自定义域名是 www.icl.site，xqk.github.io 会 301 跳过来，
+   * 所以这里必须是 www.icl.site，否则 canonical / sitemap / feed 会指向一个跳转地址。
+   * 改动时记得同步 astro.config.mjs 的 `site`（sitemap 集成读的是那个）。
+   */
+  url: 'https://www.icl.site',
   /** 顶栏 logo 前缀标记 */
   mark: 'ICL::',
   /** 站点标题 */

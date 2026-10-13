@@ -46,7 +46,8 @@ const remarkDiagramBlocks = () => (tree) => {
 };
 
 export default defineConfig({
-  site: 'https://xqk.github.io',
+  // 与 src/site.config.ts 的 url 保持一致：本仓库的规范域名是 www.icl.site
+  site: 'https://www.icl.site',
   integrations: [
     sitemap({
       /*

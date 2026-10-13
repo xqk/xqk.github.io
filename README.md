@@ -1,9 +1,12 @@
-# xqk.github.io
+# 谋生者 ICL
 
-谋生者 ICL —— 个人主页与博客，基于 [Astro](https://astro.build) 构建，源码在 `main` 分支，推送到 GitHub 后由 Actions 自动发布到 GitHub Pages。
+个人主页与博客，线上地址 **https://www.icl.site**。基于 [Astro](https://astro.build) 构建，源码在 `main` 分支，推送到 GitHub 后由 Actions 自动发布到 GitHub Pages。
+
+仓库名是 `xqk.github.io`，但 Pages 配了自定义域名 `www.icl.site`，所以 `xqk.github.io`
+会 301 跳转到 `www.icl.site`。
 
 - 旧 Hugo 站（terminal 主题）完整保留在 `archive/old-main-2023` 分支
-- 旧 `www.icl.site`（由自建工具生成）已废弃，但其 `/{数字}.html` 的 URL 约定在本站延续
+- 旧建站工具生成的 `www.icl.site` 已由本站接管，`/{数字}.html` 的 URL 约定因此无缝延续
 
 ## 本地开发
 
@@ -20,8 +23,8 @@ pnpm check    # 类型检查
 **文件名即 URL。** 文章放在 `src/content/posts/`，关于页在 `src/content/pages/about.md`。
 
 ```
-src/content/posts/17356627257151.md   →   https://xqk.github.io/17356627257151.html
-src/content/posts/2026-10-13-hello.md →   https://xqk.github.io/2026-10-13-hello.html
+src/content/posts/17356627257151.md   →   https://www.icl.site/17356627257151.html
+src/content/posts/2026-10-13-hello.md →   https://www.icl.site/2026-10-13-hello.html
 ```
 
 从旧库迁移过来的文章沿用原有的数字 ID 文件名；新写的文章可以随意命名，文件名会成为 URL 片段。
