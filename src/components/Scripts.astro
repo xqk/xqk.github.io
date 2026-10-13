@@ -43,9 +43,22 @@
       return found;
     };
 
+    /**
+     * 每段增强各自隔离。此前目录高亮里一个非法的 rootMargin 抛了 SyntaxError，
+     * 把整个 IIFE 中断，导致排在后面的 echarts 渲染静默失效且毫无线索。
+     */
+    const safe = (label, fn) => {
+      try {
+        fn();
+      } catch (err) {
+        console.warn(`[站点增强] ${label} 初始化失败`, err);
+      }
+    };
+
     /* 1. 主题切换 */
-    const toggle = document.querySelector('[data-theme-toggle]');
-    if (toggle) {
+    safe('主题切换', () => {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (!toggle) return;
       toggle.addEventListener('click', () => {
         const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
         root.dataset.theme = next;
@@ -55,52 +68,56 @@
           /* 隐私模式下忽略 */
         }
       });
-    }
+    });
 
     /* 2. 回到顶部 */
-    const toTop = document.querySelector('[data-to-top]');
-    if (toTop) {
+    safe('回到顶部', () => {
+      const toTop = document.querySelector('[data-to-top]');
+      if (!toTop) return;
       const sync = () => toTop.classList.toggle('is-visible', window.scrollY > 600);
       sync();
       window.addEventListener('scroll', sync, { passive: true });
       toTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    }
+    });
 
     /* 3. 代码块复制按钮 */
-    for (const pre of document.querySelectorAll('.prose pre')) {
-      const code = pre.querySelector(':scope > code');
-      if (!code || pre.closest('.code-block')) continue;
-      if (pre.dataset.language === 'mermaid' || pre.dataset.language === 'echarts') continue;
-      if (/language-(mermaid|echarts)/.test(code.className)) continue;
+    safe('代码块复制', () => {
+      for (const pre of document.querySelectorAll('.prose pre')) {
+        const code = pre.querySelector(':scope > code');
+        if (!code || pre.closest('.code-block')) continue;
+        if (pre.dataset.language === 'mermaid' || pre.dataset.language === 'echarts') continue;
+        if (/language-(mermaid|echarts)/.test(code.className)) continue;
 
-      const holder = document.createElement('div');
-      holder.className = 'code-block';
-      pre.replaceWith(holder);
-      holder.appendChild(pre);
+        const holder = document.createElement('div');
+        holder.className = 'code-block';
+        pre.replaceWith(holder);
+        holder.appendChild(pre);
 
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'code-block__copy';
-      btn.textContent = '复制';
-      btn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(code.textContent || '');
-          btn.textContent = '已复制';
-        } catch (_) {
-          btn.textContent = '复制失败';
-        }
-        setTimeout(() => {
-          btn.textContent = '复制';
-        }, 1600);
-      });
-      holder.appendChild(btn);
-    }
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'code-block__copy';
+        btn.textContent = '复制';
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(code.textContent || '');
+            btn.textContent = '已复制';
+          } catch (_) {
+            btn.textContent = '复制失败';
+          }
+          setTimeout(() => {
+            btn.textContent = '复制';
+          }, 1600);
+        });
+        holder.appendChild(btn);
+      }
+    });
 
     /* 4. 阅读进度条 */
-    const bar = document.querySelector('[data-progress]');
-    if (bar) {
+    safe('阅读进度条', () => {
+      const bar = document.querySelector('[data-progress]');
+      if (!bar) return;
       const update = () => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
@@ -108,14 +125,17 @@
       update();
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update);
-    }
+    });
 
     /* 5. 目录滚动高亮 */
-    const tocLinks = [...document.querySelectorAll('.toc__list a')];
-    if (tocLinks.length) {
-      const targets = tocLinks
-        .map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))))
-        .filter(Boolean);
+    safe('目录高亮', () => {
+      const tocLinks = [...document.querySelectorAll('.toc__list a')];
+      if (tocLinks.length === 0) return;
+
+      /** a.hash 对非 ASCII 会返回百分号编码，比较前必须先解码 */
+      const idOf = (a) => decodeURIComponent(a.hash.slice(1));
+
+      const targets = tocLinks.map(idOf).map((id) => document.getElementById(id)).filter(Boolean);
       const visible = new Set();
 
       const apply = () => {
@@ -125,7 +145,7 @@
             targets.find((el) => el.getBoundingClientRect().top > 0) ?? targets[targets.length - 1];
         }
         for (const a of tocLinks) {
-          a.classList.toggle('is-active', current ? a.hash === '#' + current.id : false);
+          a.classList.toggle('is-active', current ? idOf(a) === current.id : false);
         }
       };
 
@@ -137,15 +157,21 @@
           }
           apply();
         },
-        { rootMargin: '-5rem 0px -70% 0px' },
+        /*
+         * rootMargin 只接受**绝对长度单位或百分比**（如 80px / 70%），
+         * 写 rem 会直接抛 SyntaxError（这正是之前 echarts 失效的原因）。
+         */
+        { rootMargin: '-80px 0px -70% 0px' },
       );
       targets.forEach((el) => observer.observe(el));
       apply();
-    }
+    });
 
     /* 6. echarts 图表（附 jQuery，兼容旧文里 $.ajax 同步取 GeoJSON 的写法） */
-    const chartBlocks = collectDiagrams('echarts');
-    if (chartBlocks.length) {
+    safe('echarts 图表', () => {
+      const chartBlocks = collectDiagrams('echarts');
+      if (chartBlocks.length === 0) return;
+
       const loadScript = (src) =>
         new Promise((resolve, reject) => {
           const el = document.createElement('script');
@@ -172,7 +198,11 @@
               );
               const option = run(window.echarts, window.jQuery);
               if (!option) continue;
+
+              // option.height / option.width 是旧工具的容器尺寸约定，沿用
               host.style.height = (option.height || 420) + 'px';
+              if (option.width) host.style.width = option.width + 'px';
+
               const chart = window.echarts.init(
                 host,
                 root.dataset.theme === 'dark' ? 'dark' : null,
@@ -186,6 +216,6 @@
           }
         })
         .catch((err) => console.warn('[echarts] 资源加载失败', err));
-    }
+    });
   })();
 </script>
