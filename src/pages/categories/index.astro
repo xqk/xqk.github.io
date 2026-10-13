@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { collectTerms, getSortedPosts } from '../../utils/posts';
+
+const posts = await getSortedPosts();
+const { categories } = collectTerms(posts);
+---
+
+<BaseLayout title="分类" description="按分类浏览全部文章。">
+  <header class="list-head">
+    <h1 class="list-head__title">分类</h1>
+    <p class="list-head__desc">共 {categories.length} 个分类 · {posts.length} 篇文章</p>
+  </header>
+
+  <div class="cloud">
+    {
+      categories.map((item) => (
+        <a class="chip" href={`/categories/${encodeURIComponent(item.name)}/`}>
+          <Icon name="folder" size={12} />
+          {item.name}
+          <span class="chip__count">{item.count}</span>
+        </a>
+      ))
+    }
+  </div>
+</BaseLayout>

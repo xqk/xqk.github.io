@@ -1,0 +1,21 @@
+---
+/** 旧站中文首页 /zh-cn/ 的跳转页 */
+import { site } from '../../site.config';
+
+const target = '/';
+const absolute = new URL(target, site.url).href;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>页面已迁移 · {site.title}</title>
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={absolute} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>站点已改版，正在跳转到 <a href={target}>{absolute}</a></p>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+---
+import PostCard from './PostCard.astro';
+import type { Post } from '../utils/posts';
+
+interface Props {
+  posts: Post[];
+  excerpt?: boolean;
+}
+
+const { posts, excerpt = true } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty">这里还没有文章。</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <PostCard post={post} excerpt={excerpt} />
+        </li>
+      ))}
+    </ul>
+  )
+}

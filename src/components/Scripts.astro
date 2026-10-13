@@ -1,0 +1,219 @@
+---
+/**
+ * 客户端增强脚本（内联，避免被打包器改写 CDN 动态 import）。
+ * 负责：主题切换、回到顶部、代码复制、阅读进度、目录高亮、mermaid / echarts 渲染。
+ */
+---
+
+<script is:inline>
+  (() => {
+    'use strict';
+
+    const CDN = {
+      mermaid: 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.1.0/mermaid.esm.min.mjs',
+      echarts: 'https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js',
+      jquery: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js',
+    };
+
+    const root = document.documentElement;
+
+    /** 取出某种语言的代码块对应的 <pre>，兼容 shiki 高亮与纯转义两种输出 */
+    const findCodeBlocks = (lang) =>
+      [...document.querySelectorAll('pre')].filter((pre) => {
+        const code = pre.querySelector(':scope > code');
+        if (!code) return false;
+        return pre.dataset.language === lang || code.classList.contains('language-' + lang);
+      });
+
+    /**
+     * 收集待渲染的图表：优先取 remark 插件生成的占位 script，
+     * 再兜底找 shiki 仍保留语言名的代码块。
+     */
+    const collectDiagrams = (lang) => {
+      const found = [];
+      for (const el of document.querySelectorAll(
+        `script[type="text/plain"][data-diagram="${lang}"]`,
+      )) {
+        found.push({ holder: el, source: el.textContent || '' });
+      }
+      for (const pre of findCodeBlocks(lang)) {
+        const code = pre.querySelector(':scope > code');
+        found.push({ holder: pre, source: code ? code.textContent || '' : '' });
+      }
+      return found;
+    };
+
+    /* 1. 主题切换 */
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch (_) {
+          /* 隐私模式下忽略 */
+        }
+      });
+    }
+
+    /* 2. 回到顶部 */
+    const toTop = document.querySelector('[data-to-top]');
+    if (toTop) {
+      const sync = () => toTop.classList.toggle('is-visible', window.scrollY > 600);
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+      toTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* 3. 代码块复制按钮 */
+    for (const pre of document.querySelectorAll('.prose pre')) {
+      const code = pre.querySelector(':scope > code');
+      if (!code || pre.closest('.code-block')) continue;
+      if (pre.dataset.language === 'mermaid' || pre.dataset.language === 'echarts') continue;
+      if (/language-(mermaid|echarts)/.test(code.className)) continue;
+
+      const holder = document.createElement('div');
+      holder.className = 'code-block';
+      pre.replaceWith(holder);
+      holder.appendChild(pre);
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'code-block__copy';
+      btn.textContent = '复制';
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent || '');
+          btn.textContent = '已复制';
+        } catch (_) {
+          btn.textContent = '复制失败';
+        }
+        setTimeout(() => {
+          btn.textContent = '复制';
+        }, 1600);
+      });
+      holder.appendChild(btn);
+    }
+
+    /* 4. 阅读进度条 */
+    const bar = document.querySelector('[data-progress]');
+    if (bar) {
+      const update = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    }
+
+    /* 5. 目录滚动高亮 */
+    const tocLinks = [...document.querySelectorAll('.toc__list a')];
+    if (tocLinks.length) {
+      const targets = tocLinks
+        .map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))))
+        .filter(Boolean);
+      const visible = new Set();
+
+      const apply = () => {
+        let current = targets.find((el) => visible.has(el));
+        if (!current) {
+          current =
+            targets.find((el) => el.getBoundingClientRect().top > 0) ?? targets[targets.length - 1];
+        }
+        for (const a of tocLinks) {
+          a.classList.toggle('is-active', current ? a.hash === '#' + current.id : false);
+        }
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) visible.add(entry.target);
+            else visible.delete(entry.target);
+          }
+          apply();
+        },
+        { rootMargin: '-5rem 0px -70% 0px' },
+      );
+      targets.forEach((el) => observer.observe(el));
+      apply();
+    }
+
+    /* 6. mermaid 图表 */
+    const mermaidBlocks = collectDiagrams('mermaid');
+    if (mermaidBlocks.length) {
+      import(CDN.mermaid)
+        .then((mod) => {
+          const mermaid = mod.default ?? mod;
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: root.dataset.theme === 'dark' ? 'dark' : 'default',
+            fontFamily: 'inherit',
+          });
+          mermaidBlocks.forEach(async ({ holder, source }, i) => {
+            const host = document.createElement('div');
+            host.className = 'diagram';
+            try {
+              const { svg } = await mermaid.render('mermaid-' + i, source);
+              host.innerHTML = svg;
+            } catch (err) {
+              host.textContent = source;
+              console.warn('[mermaid] 渲染失败', err);
+            }
+            holder.replaceWith(host);
+          });
+        })
+        .catch((err) => console.warn('[mermaid] 资源加载失败', err));
+    }
+
+    /* 7. echarts 图表（附 jQuery，兼容旧文里 $.ajax 同步取 GeoJSON 的写法） */
+    const chartBlocks = collectDiagrams('echarts');
+    if (chartBlocks.length) {
+      const loadScript = (src) =>
+        new Promise((resolve, reject) => {
+          const el = document.createElement('script');
+          el.src = src;
+          el.async = false;
+          el.onload = resolve;
+          el.onerror = () => reject(new Error('加载失败: ' + src));
+          document.head.appendChild(el);
+        });
+
+      loadScript(CDN.jquery)
+        .then(() => loadScript(CDN.echarts))
+        .then(() => {
+          for (const { holder, source } of chartBlocks) {
+            const host = document.createElement('div');
+            host.className = 'diagram diagram--chart';
+            holder.replaceWith(host);
+            try {
+              // 旧文的写法是直接赋值 option = {...}，这里把 option 回捞出来
+              const run = new Function(
+                'echarts',
+                '$',
+                source + '\n;return typeof option !== "undefined" ? option : null;',
+              );
+              const option = run(window.echarts, window.jQuery);
+              if (!option) continue;
+              host.style.height = (option.height || 420) + 'px';
+              const chart = window.echarts.init(
+                host,
+                root.dataset.theme === 'dark' ? 'dark' : null,
+              );
+              chart.setOption(option);
+              window.addEventListener('resize', () => chart.resize());
+            } catch (err) {
+              host.textContent = '图表渲染失败';
+              console.warn('[echarts] 渲染失败', err);
+            }
+          }
+        })
+        .catch((err) => console.warn('[echarts] 资源加载失败', err));
+    }
+  })();
+</script>

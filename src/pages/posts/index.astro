@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { formatDate, groupByYear, postHref, getSortedPosts } from '../../utils/posts';
+
+const posts = await getSortedPosts();
+const groups = groupByYear(posts);
+---
+
+<BaseLayout title="全部文章" description={`共 ${posts.length} 篇文章，按年份归档。`}>
+  <header class="list-head">
+    <h1 class="list-head__title">全部文章</h1>
+    <p class="list-head__desc">
+      共 {posts.length} 篇 · {groups.length} 个年份
+    </p>
+  </header>
+
+  {
+    groups.map((group) => (
+      <section class="year-group">
+        <h2 class="year-group__year">{group.year}</h2>
+        <ul class="year-group__list">
+          {group.posts.map((post) => (
+            <li>
+              <a class="year-group__item" href={postHref(post)}>
+                <time class="year-group__date" datetime={post.data.date.toISOString()}>
+                  {formatDate(post.data.date).slice(5)}
+                </time>
+                <span class="year-group__title">{post.data.title}</span>
+                {post.data.categories.length > 0 && (
+                  <span class="chip__count">{post.data.categories.at(-1)}</span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <p style="margin-top: 2rem">
+    <a class="btn" href="/rss.xml">
+      <Icon name="rss" />
+      订阅 RSS
+    </a>
+  </p>
+</BaseLayout>

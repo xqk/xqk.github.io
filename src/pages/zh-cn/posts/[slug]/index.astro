@@ -1,0 +1,42 @@
+---
+/**
+ * 旧站（Hugo，xqk.github.io）文章链接的跳转页。
+ * 旧 URL 形如 /zh-cn/posts/<slug>/，这里输出静态跳转页，保住已有的外链与收录。
+ */
+import { site } from '../../../../site.config';
+import { getSortedPosts } from '../../../../utils/posts';
+
+interface Props {
+  target: string;
+}
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  const paths: Array<{ params: { slug: string }; props: Props }> = [];
+
+  for (const post of posts) {
+    for (const legacy of post.data.legacySlugs) {
+      paths.push({ params: { slug: legacy }, props: { target: `/${post.id}.html` } });
+    }
+  }
+
+  return paths;
+}
+
+const { target } = Astro.props;
+const absolute = new URL(target, site.url).href;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>页面已迁移 · {site.title}</title>
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={absolute} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>页面已迁移，正在跳转到 <a href={target}>{absolute}</a></p>
+  </body>
+</html>

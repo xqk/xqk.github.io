@@ -1,0 +1,108 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import HetiEnhance from '../components/HetiEnhance.astro';
+import { formatDateCN, postHref, readingMinutes, type Post } from '../utils/posts';
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  post: Post;
+  headings: MarkdownHeading[];
+  prev?: Post;
+  next?: Post;
+}
+
+const { post, headings, prev, next } = Astro.props;
+const { title, date, description, categories, tags, toc } = post.data;
+
+// 只保留 h2 / h3，至少两条才值得显示目录
+const tocItems = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const showToc = toc && tocItems.length >= 2;
+---
+
+<BaseLayout
+  title={title}
+  description={description || undefined}
+  type="article"
+  published={date}
+  canonicalPath={`/${post.id}.html`}
+>
+  <div class="progress" data-progress aria-hidden="true"></div>
+
+  <article class="post-shell">
+    <header class="post-header">
+      <h1 class="post-header__title">{title}</h1>
+
+      <div class="post-header__meta">
+        <span>
+          <Icon name="calendar" size={14} />
+          <time datetime={date.toISOString()}>{formatDateCN(date)}</time>
+        </span>
+        <span><Icon name="clock" size={14} /> {readingMinutes(post.body)} 分钟阅读</span>
+      </div>
+
+      {
+        (categories.length > 0 || tags.length > 0) && (
+          <div class="post-header__links">
+            {categories.map((name) => (
+              <a class="chip" href={`/categories/${encodeURIComponent(name)}/`}>
+                <Icon name="folder" size={12} /> {name}
+              </a>
+            ))}
+            {tags.map((name) => (
+              <a class="chip" href={`/tags/${encodeURIComponent(name)}/`}>
+                <Icon name="tag" size={12} /> {name}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    <div class="post-layout">
+      <div class="prose heti">
+        <slot />
+
+        {
+          (prev || next) && (
+            <nav class="post-nav" aria-label="上下篇导航">
+              {prev ? (
+                <a class="post-nav__item" href={postHref(prev)}>
+                  <span class="post-nav__label">← 上一篇</span>
+                  <span class="post-nav__title">{prev.data.title}</span>
+                </a>
+              ) : (
+                <span />
+              )}
+              {next ? (
+                <a class="post-nav__item post-nav__item--next" href={postHref(next)}>
+                  <span class="post-nav__label">下一篇 →</span>
+                  <span class="post-nav__title">{next.data.title}</span>
+                </a>
+              ) : (
+                <span />
+              )}
+            </nav>
+          )
+        }
+      </div>
+
+      {
+        showToc && (
+          <aside class="toc" aria-label="文章目录">
+            <p class="toc__title">目录</p>
+            <ul class="toc__list">
+              {tocItems.map((h) => (
+                <li class={h.depth === 3 ? 'toc__list--h3' : undefined}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )
+      }
+    </div>
+  </article>
+
+  <HetiEnhance />
+</BaseLayout>

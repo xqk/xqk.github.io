@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { collectTerms, getSortedPosts } from '../../utils/posts';
+
+const posts = await getSortedPosts();
+const { tags } = collectTerms(posts);
+---
+
+<BaseLayout title="标签" description="按标签浏览全部文章。">
+  <header class="list-head">
+    <h1 class="list-head__title">标签</h1>
+    <p class="list-head__desc">共 {tags.length} 个标签</p>
+  </header>
+
+  {
+    tags.length === 0 ? (
+      <p class="empty">还没有使用过标签。</p>
+    ) : (
+      <div class="cloud">
+        {tags.map((item) => (
+          <a class="chip" href={`/tags/${encodeURIComponent(item.name)}/`}>
+            <Icon name="tag" size={12} />
+            {item.name}
+            <span class="chip__count">{item.count}</span>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>

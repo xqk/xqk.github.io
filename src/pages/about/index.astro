@@ -1,0 +1,30 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HetiEnhance from '../../components/HetiEnhance.astro';
+import { formatDateCN } from '../../utils/posts';
+
+const entry = await getEntry('pages', 'about');
+if (!entry) throw new Error('找不到 src/content/pages/about.md');
+
+const { Content } = await render(entry);
+const { title, description, date } = entry.data;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="post-shell">
+    <header class="post-header">
+      <h1 class="post-header__title">{title}</h1>
+      <p class="post-header__meta"><span>{description}</span></p>
+      {date && <p class="post-header__meta">最近更新：{formatDateCN(date)}</p>}
+    </header>
+
+    <div class="post-layout">
+      <div class="prose heti">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <HetiEnhance />
+</BaseLayout>

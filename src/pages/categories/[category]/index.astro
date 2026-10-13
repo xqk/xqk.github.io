@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+import { collectTerms, filterPosts, getSortedPosts } from '../../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  const { categories } = collectTerms(posts);
+  return categories.map((item) => ({
+    params: { category: item.name },
+    props: { name: item.name, posts: filterPosts(posts, 'categories', item.name) },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`分类：${name}`}
+  description={`「${name}」分类下的全部文章，共 ${posts.length} 篇。`}
+>
+  <header class="list-head">
+    <p class="breadcrumb"><a href="/categories/">分类</a> / {name}</p>
+    <h1 class="list-head__title">{name}</h1>
+    <p class="list-head__desc">共 {posts.length} 篇</p>
+  </header>
+
+  <PostList posts={posts} />
+</BaseLayout>

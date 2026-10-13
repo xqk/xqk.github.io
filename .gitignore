@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.astro/
+
+# 迁移输入：正文已迁到 src/content/，这里不再入库
+# 若想把原始资料也纳入版本管理，删掉下面两行即可
+docs/
+mainlib.db
+
+# 环境与杂项
+.env
+.env.*
+.DS_Store
+*.log
+pnpm-debug.log*

@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../site.config';
+
+const year = new Date().getFullYear();
+const range = year > site.since ? `${site.since}–${year}` : `${site.since}`;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© {range} {site.author.name} · {site.title}</p>
+
+    <nav class="footer__links" aria-label="社交链接">
+      {
+        site.social.map((item) => (
+          <a href={item.href} rel="me noopener" target="_blank">
+            <Icon name={item.icon} size={14} /> {item.label}
+          </a>
+        ))
+      }
+      <a href="/atom.xml">
+        <Icon name="rss" size={14} /> Atom
+      </a>
+      <a href="/rss.xml">
+        <Icon name="rss" size={14} /> RSS
+      </a>
+    </nav>
+  </div>
+</footer>

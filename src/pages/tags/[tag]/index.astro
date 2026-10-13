@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+import { collectTerms, filterPosts, getSortedPosts } from '../../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  const { tags } = collectTerms(posts);
+  return tags.map((item) => ({
+    params: { tag: item.name },
+    props: { name: item.name, posts: filterPosts(posts, 'tags', item.name) },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<BaseLayout title={`标签：${name}`} description={`标记为「${name}」的文章，共 ${posts.length} 篇。`}>
+  <header class="list-head">
+    <p class="breadcrumb"><a href="/tags/">标签</a> / {name}</p>
+    <h1 class="list-head__title">#{name}</h1>
+    <p class="list-head__desc">共 {posts.length} 篇</p>
+  </header>
+
+  <PostList posts={posts} />
+</BaseLayout>

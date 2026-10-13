@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../site.config';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href);
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__brand" href="/">
+      <span class="header__brand-mark">{site.mark}</span>
+      <span>{site.title}</span>
+      <span class="header__brand-sub">/ {site.tagline}</span>
+    </a>
+
+    <nav class="header__nav" aria-label="站点导航">
+      {
+        site.nav.map((item) => (
+          <a
+            class="header__link"
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="切换深浅色主题"
+        title="切换深浅色主题"
+      >
+        <Icon name="sun" class="theme-toggle__sun" />
+        <Icon name="moon" class="theme-toggle__moon" />
+      </button>
+    </nav>
+  </div>
+</header>

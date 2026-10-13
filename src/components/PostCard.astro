@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+import { formatDate, postHref, readingMinutes, type Post } from '../utils/posts';
+
+interface Props {
+  post: Post;
+  excerpt?: boolean;
+}
+
+const { post, excerpt = true } = Astro.props;
+const { title, date, description, categories, tags } = post.data;
+const minutes = readingMinutes(post.body);
+const terms = [...categories.slice(-1), ...tags];
+---
+
+<a class="post-card" href={postHref(post)}>
+  <div class="post-card__meta">
+    <time class="post-card__date" datetime={date.toISOString()}>{formatDate(date)}</time>
+    <span>·</span>
+    <span>{minutes} 分钟</span>
+    {post.data.pinned && <span class="chip chip--accent">置顶</span>}
+  </div>
+
+  <h3 class="post-card__title">{title}</h3>
+
+  {excerpt && description && <p class="post-card__excerpt">{description}</p>}
+
+  {
+    terms.length > 0 && (
+      <div class="post-card__foot">
+        {terms.map((name) => (
+          <span class="chip">
+            <Icon name={categories.includes(name) ? 'folder' : 'tag'} size={12} />
+            {name}
+          </span>
+        ))}
+      </div>
+    )
+  }
+</a>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../site.config';
+import { collectTerms, getSortedPosts } from '../utils/posts';
+
+const allPosts = await getSortedPosts();
+const { categories, tags } = collectTerms(allPosts);
+
+const pinned = allPosts.filter((p) => p.data.pinned);
+const latest = [...pinned, ...allPosts.filter((p) => !p.data.pinned)].slice(0, 12);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <p class="hero__eyebrow">{site.mark}</p>
+    <h1 class="hero__title">{site.title}</h1>
+    <p class="hero__tagline">{site.tagline}</p>
+
+    <div class="hero__actions">
+      {
+        site.social.map((item) => (
+          <a class="btn" href={item.href} rel="me noopener" target="_blank">
+            <Icon name={item.icon} />
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="btn" href="/atom.xml">
+        <Icon name="rss" />
+        订阅
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <h2 class="section__title">最新文章</h2>
+      <a class="section__more" href="/posts/">
+        全部 {allPosts.length} 篇 →
+      </a>
+    </div>
+    <PostList posts={latest} />
+  </section>
+
+  {
+    categories.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <h2 class="section__title">分类</h2>
+          <a class="section__more" href="/categories/">
+            查看全部 →
+          </a>
+        </div>
+        <div class="cloud">
+          {categories.map((item) => (
+            <a class="chip" href={`/categories/${encodeURIComponent(item.name)}/`}>
+              <Icon name="folder" size={12} />
+              {item.name}
+              <span class="chip__count">{item.count}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    tags.length > 0 && (
+      <section class="section">
+        <div class="section__head">
+          <h2 class="section__title">标签</h2>
+          <a class="section__more" href="/tags/">
+            查看全部 →
+          </a>
+        </div>
+        <div class="cloud">
+          {tags.map((item) => (
+            <a class="chip" href={`/tags/${encodeURIComponent(item.name)}/`}>
+              <Icon name="tag" size={12} />
+              {item.name}
+              <span class="chip__count">{item.count}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

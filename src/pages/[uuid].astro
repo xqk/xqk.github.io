@@ -1,0 +1,28 @@
+---
+/**
+ * 文章页。
+ *
+ * 路由是根目录下的单段路径，配合 astro.config.mjs 里的 `build.format: 'preserve'`，
+ * `src/content/posts/17356627257151.md` 会输出成 `dist/17356627257151.html`，
+ * 即「文件名即 URL」，与旧站 www.icl.site 的约定一致。
+ */
+import { render } from 'astro:content';
+import PostLayout from '../layouts/PostLayout.astro';
+import { getSortedPosts } from '../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  return posts.map((post, i) => ({
+    params: { uuid: post.id },
+    // 列表按时间倒序，故 i-1 更新、i+1 更旧
+    props: { post, prev: posts[i - 1], next: posts[i + 1] },
+  }));
+}
+
+const { post, prev, next } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<PostLayout post={post} headings={headings} prev={prev} next={next}>
+  <Content />
+</PostLayout>
